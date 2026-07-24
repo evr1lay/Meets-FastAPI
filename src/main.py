@@ -66,6 +66,11 @@ def get_db():
 def form_orm_to_model(ORM: FormORM):
     return FormSchema(id=ORM.id, title=ORM.title, description=ORM.description, likes=ORM.likes)
 
+@app.get("/forms")
+def get_forms(db: Session = Depends(get_db)) -> list[FormSchema]:
+    forms_orm = db.scalars(select(FormORM)).all()
+    return [FormSchema.model_validate(form) for form in forms_orm]
+
 @app.get("/forms/random", tags=["GET-Methods"])
 def get_random(db: Session = Depends(get_db)) -> FormSchema:
     forms_orm = db.scalars(select(FormORM)).all()
