@@ -1,0 +1,53 @@
+# Виртуальные окружения (virtual environments)
+# Распространенные названия папок
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Зависимости, установленные через pip
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Скомпилированный байт-код Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Файлы миграций базы данных (опционально, зависит от фреймворка)
+# Обычно их оставляют, но игнорируют сгенерированные схемы данных
+*.sqlite3
+*.db
+
+# Файлы переменных окружения и секреты
+.env
+.env.local
+.env.*.local
+secret.json
+local_settings.py
+
+# Метаданные IDE и текстовых редакторов
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+*.iml
