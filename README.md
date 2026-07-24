@@ -15,7 +15,6 @@ A modern, high-performance REST API built with FastAPI, SQLAlchemy, and SQLite f
 | Method | Endpoint | Description | Status Codes |
 |--------|----------|-------------|--------------|
 | `GET` | `/forms` | Return a list of forms | 200
-| `GET` | `/forms/random` | Get a random form | 200, 404 |
 | `POST` | `/forms` | Create a new form | 201 |
 | `PATCH` | `/forms?form_id={id}` | Update an existing form | 200, 404 |
 | `DELETE` | `/forms?form_id={id}` | Delete a form | 204, 404 |
