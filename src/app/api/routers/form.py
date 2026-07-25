@@ -1,5 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.responses import JSONResponse
+from typing import Union
 
+from app.repositories.form import FormNotFound
 from app.services.form import FormService
 from app.schemas.form import FormSchema, FormUpdateSchema, FormCreateSchema
 from app.api.dependencies import get_form_service
@@ -11,8 +14,11 @@ def get_forms(form_service: FormService = Depends(get_form_service)) -> list[For
     return form_service.list_forms()
 
 @router.get("/random", tags=["🔍 GET-Methods"])
-def get_random(form_service: FormService = Depends(get_form_service)) -> FormSchema:
-    return form_service.get_random()
+def get_random(form_service: FormService = Depends(get_form_service)) -> Union[FormSchema, dict]:
+    try:
+        return form_service.get_random()
+    except FormNotFound:
+        return {"message": "There are no suitable forms", "data": None}
 
 @router.post("", tags=["📚 POST-Methods"], status_code=status.HTTP_201_CREATED)
 def add_form(payload: FormCreateSchema, form_service: FormService = Depends(get_form_service)):
