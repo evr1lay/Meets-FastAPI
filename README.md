@@ -26,7 +26,6 @@ A modern, high-performance REST API built with FastAPI, SQLAlchemy, and SQLite f
 
 ![UI](docs/img/SwaggerUI_preview.png)
 
-
 # Get started
 
 ```bash
