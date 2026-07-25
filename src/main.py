@@ -66,7 +66,7 @@ def get_db():
 def form_orm_to_model(ORM: FormORM):
     return FormSchema(id=ORM.id, title=ORM.title, description=ORM.description, likes=ORM.likes)
 
-@app.get("/forms")
+@app.get("/forms", tags=["GET-Methods"])
 def get_forms(db: Session = Depends(get_db)) -> list[FormSchema]:
     forms_orm = db.scalars(select(FormORM)).all()
     return [FormSchema.model_validate(form) for form in forms_orm]
@@ -110,4 +110,3 @@ def delete_form(form_id: str, db: Session = Depends(get_db)) -> None:
     
     db.delete(form_for_delete)
     db.commit()
-    db.refresh(form_for_delete)
