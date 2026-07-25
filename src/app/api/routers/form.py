@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 
 from app.services.form import FormService
 from app.schemas.form import FormSchema, FormUpdateSchema, FormCreateSchema
@@ -14,7 +14,7 @@ def get_forms(form_service: FormService = Depends(get_form_service)) -> list[For
 def get_random(form_service: FormService = Depends(get_form_service)) -> FormSchema:
     return form_service.get_random()
 
-@router.post("", tags=["POST-Methods"])
+@router.post("", tags=["POST-Methods"], status_code=status.HTTP_201_CREATED)
 def add_form(payload: FormCreateSchema, form_service: FormService = Depends(get_form_service)):
     return form_service.create_form(payload)
 
@@ -22,6 +22,6 @@ def add_form(payload: FormCreateSchema, form_service: FormService = Depends(get_
 def upd_form(form_id: str, payload: FormUpdateSchema, form_service: FormService = Depends(get_form_service)) -> FormSchema:
     return form_service.update_form(form_id, payload)
 
-@router.delete("", tags=["DELETE-Methods"])
+@router.delete("", tags=["DELETE-Methods"], status_code=status.HTTP_204_NO_CONTENT)
 def del_form(form_id: str, form_service: FormService = Depends(get_form_service)) -> None:
     return form_service.delete_form(form_id)
