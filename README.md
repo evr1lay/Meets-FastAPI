@@ -23,3 +23,23 @@ A modern, high-performance REST API built with FastAPI, SQLAlchemy, and SQLite f
 | `POST` | `/forms` | Create a new form | 201 |
 | `PATCH` | `/forms?form_id={id}` | Update an existing form | 200, 404 |
 | `DELETE` | `/forms?form_id={id}` | Delete a form | 204, 404 |
+
+![UI](docs/img/SwaggerUI_preview.png)
+
+
+# Get started
+
+```bash
+#Clone repo
+git clone https://github.com/yourusername/umalib.git
+cd umalib
+
+#Setup venv
+python -m venv venv
+source venv/scripts/activate
+pip install -r requirements.txt
+
+# Run
+cd src
+uvicorn main:app --reload
+```
