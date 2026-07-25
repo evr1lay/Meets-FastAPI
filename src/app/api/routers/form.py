@@ -10,7 +10,7 @@ router = APIRouter(prefix="/forms")
 def get_forms(form_service: FormService = Depends(get_form_service)) -> list[FormSchema]:
     return form_service.list_forms()
 
-@router.get("", tags=["🔍 GET-Methods"])
+@router.get("/random", tags=["🔍 GET-Methods"])
 def get_random(form_service: FormService = Depends(get_form_service)) -> FormSchema:
     return form_service.get_random()
 

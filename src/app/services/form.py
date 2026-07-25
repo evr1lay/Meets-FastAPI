@@ -16,8 +16,13 @@ class FormService:
     
     def get_random(self):
         forms_orm = self.form_repository.get_all()
+        
+        if not forms_orm:
+            raise FormNotFound("No forms found")
+        
         forms_table = [FormSchema.model_validate(form) for form in forms_orm]
-        return forms_table[random.randint(0, len(forms_table) - 1)]
+        form_model = forms_table[random.randint(0, len(forms_table) - 1)]
+        return form_model
         
     def create_form(self, payload: FormCreateSchema):
         form_orm = self.form_repository.create(payload)
