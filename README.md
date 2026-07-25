@@ -2,6 +2,10 @@
 
 A modern, high-performance REST API built with FastAPI, SQLAlchemy, and SQLite for managing form data with full CRUD operations.
 
+## UPD. LIST
+24.07.26 - **RELEASE (init)**
+25.07.26 - **Layered Architecture UPDATE**
+
 ## Tech Stack
 
 - Framework: **FastAPI**
