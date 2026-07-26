@@ -4,7 +4,7 @@ A modern, high-performance REST API built with FastAPI, SQLAlchemy, and SQLite f
 
 ## UPD. LIST
 24.07.26 - **RELEASE (init)**   
-25.07.26 - **Layered Architecture UPDATE**
+25.07.26 - **Layered Architecture UPDATE**       
 26.06.26 -- **TELEGRAM BOT (wip)**
 
 ## Tech Stack
