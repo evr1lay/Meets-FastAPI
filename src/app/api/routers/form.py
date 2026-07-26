@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import JSONResponse
 from typing import Union
 
-from app.repositories.form import FormNotFound
-from app.services.form import FormService
-from app.schemas.form import FormSchema, FormUpdateSchema, FormCreateSchema
-from app.api.dependencies import get_form_service
+from repositories.form import FormNotFound
+from services.form import FormService
+from schemas.form import FormSchema, FormUpdateSchema, FormCreateSchema
+from api.dependencies import get_form_service
 
 router = APIRouter(prefix="/forms")
 

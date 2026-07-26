@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Mapped
-from app.models.base import Base
+from models.base import Base
 
 class FormORM(Base):
     __tablename__ = "Forms"

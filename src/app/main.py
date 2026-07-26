@@ -3,10 +3,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.db.session import engine
-from app.core.config import get_settings
-from app.models.base import Base
-from app.api.routers.form import router as form_router
+from db.session import engine
+from core.config import get_settings
+from models.base import Base
+from api.routers.form import router as form_router
 
 settings = get_settings()
     
@@ -24,3 +24,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/", tags=["🔍 GET-Methods"])
+def get_api_status():
+    return {"API_ENABLED": True}

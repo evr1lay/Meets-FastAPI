@@ -3,8 +3,8 @@ from uuid import uuid4
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.schemas.form import FormSchema, FormCreateSchema, FormUpdateSchema
-from app.models.form import FormORM
+from schemas.form import FormSchema, FormCreateSchema, FormUpdateSchema
+from models.form import FormORM
 
 class FormNotFound(Exception):
     """Form not found"""

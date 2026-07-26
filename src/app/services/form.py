@@ -2,8 +2,8 @@ import random
 
 from sqlalchemy.orm import Session
 
-from app.repositories.form import FormNotFound, FormRepository
-from app.schemas.form import FormSchema, FormCreateSchema, FormUpdateSchema
+from repositories.form import FormNotFound, FormRepository
+from schemas.form import FormSchema, FormCreateSchema, FormUpdateSchema
 
 class FormService:
     def __init__(self, db: Session):
